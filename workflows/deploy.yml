@@ -3,7 +3,7 @@ name: Deploy Gatsby to GitHub Pages
 on:
   push:
     branches:
-      - main  # Replace 'main' with your default branch if different
+      - main  # Or whatever your default branch is
 
 jobs:
   build-and-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Use the Node.js version your project needs
+          node-version: 18  # Use the Node.js version you are using
 
       - name: Install dependencies
         run: npm install
@@ -28,4 +28,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./public  # This should point to the built output folder
